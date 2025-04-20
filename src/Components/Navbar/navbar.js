@@ -17,10 +17,10 @@ function Navbar() {
               <a href="/" className='nav-link'>
                 Home
               </a>
-              <a href="/" className='nav-link'>
+              <a href="/about" className='nav-link'>
                 About
               </a>
-              <a href="/" className='nav-link'>
+              <a href="/contactus" className='nav-link'>
                 Contact Us
               </a>
             </div>
@@ -32,7 +32,7 @@ function Navbar() {
               <a href="/user-profile" className='user-link'>
                 <div className='user-avatar'>
                   <span className='user-icon'>
-                  <i className="fa-solid fa-circle-user"></i>
+                    <i className="fa-solid fa-circle-user"></i>
                   </span>
                 </div>
                 <span className='username'>Sanjay Kriplani</span>
