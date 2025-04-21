@@ -4,7 +4,21 @@ function TextForm() {
   return (
     // This will contain the Main Body and they Text field
     <div>
-      <p>Text Input</p>
+      <div className="form-section">
+        <h2 className='section-title'>Text Input</h2>
+        <textarea 
+          className='text-input' 
+          placeholder='Enter or paste your text here...'>
+
+        </textarea>
+
+        <div className="action-buttons">
+          <button className="action-button">UPPERCASE</button>
+          <button className="action-button">lowercase</button>
+          <button className="action-button">Capitalize</button>
+          <button className="action-button clear">Clear</button>
+        </div>
+      </div>
     </div>
   )
 }
