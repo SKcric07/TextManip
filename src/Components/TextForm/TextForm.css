@@ -1,1 +1,92 @@
 /* TextForm.css */
+
+/* #C9C7BA : soft beige  */
+/* #1A1A1D : charcoal */
+/* #C3073F : crimson */
+
+.text-form-container{
+    width: 1280px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.form-section{
+    margin-bottom: 2rem;
+}
+
+.section-title{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #C3073F;
+}
+
+.text-input{
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: 0.5rem;
+}
+
+.text-stats{
+    display: flex;
+    justify-content: center;
+    gap: 0.875rem;
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.action-buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.action-button{
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    background-color: #1A1A1D;
+    color: white;
+    border: none;
+    font-size: 0.975rem;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.action-button:hover{
+    background-color: #C9C7BA;
+    color: #1A1A1D;
+    transform: translateY(-2px);
+}
+
+.action-button.clear{
+    background-color: #C3073F;
+}
+
+.action-button.clear:hover {
+    background-color: #c0392b;
+}
+
+
+
+
+ /* Media query for responsive design */
+ @media (max-width: 768px) {
+    .action-buttons {
+      flex-direction: column;
+    }
+    
+    .action-button {
+      width: 100%;
+    }
+  }
