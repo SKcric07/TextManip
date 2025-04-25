@@ -20,7 +20,13 @@ function TextForm() {
   };
 
   const clearTextArea = () => {
-    setInputText("")
+    setInputText("");
+  }
+
+
+  const handleCopyPreview = () => {
+    navigator.clipboard.writeText(inputText);
+    alert("Copied to clipborad!");
   }
 
   return (
@@ -55,9 +61,20 @@ function TextForm() {
           <button className="action-button clear" onClick={clearTextArea}>Clear</button>
         </div>
 
+        <div className="preview-section">
+          <div className="preview-header">
+            <h2 className='preview-title'>Preview</h2>
+            <button className="preview-copy-button" onClick={handleCopyPreview} disabled={!inputText}>Copy</button>
+          </div>
+
+          <div className="preview-display">
+            {inputText || "Your result will appear here..."}
+          </div>
+        </div>
+
       </div>
     </div>
-  )
+  );
 }
 
 export default TextForm
