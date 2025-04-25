@@ -1,7 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './TextForm.css'
 
 function TextForm() {
+  
+  const [inputText, setInputText] = useState("");
+
+  const handleTextChange = (event) => {
+    setInputText(event.target.value);
+  }
+
+  // Definition of convertToUpperCase function
+  const convertToUpperCase = () => {
+    setInputText(inputText.toUpperCase());
+  };
+
+  // Definition of convertToLowerCase function
+  const convertToLowerCase = () => {
+    setInputText(inputText.toLowerCase());
+  };
+
+  const clearTextArea = () => {
+    setInputText("")
+  }
+
   return (
     // This will contain the Main Body and they Text field
     <div className='text-form-container'>
@@ -9,22 +30,31 @@ function TextForm() {
         <h2 className='section-title'>Text Input</h2>
         <textarea 
           className='text-input' 
-          placeholder='Enter or paste your text here...'>
-
+          placeholder='Enter or paste your text here...'
+          value={inputText}
+          onChange={handleTextChange}>
+          
         </textarea>
 
         <div className="text-stats">
-          <span>10 words</span>
-          <span>10 characters</span>
+          <span>{inputText.split(/\s+/).filter(word => word !== "").length} words</span>
+          <span>{inputText.length} characters</span>
         </div>
 
         <div className="action-buttons">
-          <button className="action-button">UPPERCASE</button>
-          <button className="action-button">lowercase</button>
+          {/* Button to convert UpperCase */}
+          <button className="action-button" onClick={convertToUpperCase}>UPPERCASE</button>
+
+          {/* Button to convert lowerCase */}
+          <button className="action-button" onClick={convertToLowerCase}>lowercase</button>
+
           <button className="action-button">Capitalize</button>
           <button className="action-button">Remove Space</button>
-          <button className="action-button clear">Clear</button>
+
+          {/* Button to clear the textarea field */}
+          <button className="action-button clear" onClick={clearTextArea}>Clear</button>
         </div>
+
       </div>
     </div>
   )
