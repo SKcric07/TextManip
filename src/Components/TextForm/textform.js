@@ -19,6 +19,13 @@ function TextForm() {
     setInputText(inputText.toLowerCase());
   };
 
+  // Definition to convert every word letter in Captial letter
+  const convertToCaptial = () => {
+    const words = inputText.split(" ");
+    const captializedText = words.map(word => {return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()}).join(" ");
+    setInputText(captializedText);
+  }
+
   const clearTextArea = () => {
     setInputText("");
   }
@@ -54,7 +61,7 @@ function TextForm() {
           {/* Button to convert lowerCase */}
           <button className="action-button" onClick={convertToLowerCase}>lowercase</button>
 
-          <button className="action-button">Capitalize</button>
+          <button className="action-button" onClick={convertToCaptial}>Capitalize</button>
           <button className="action-button">Remove Space</button>
 
           {/* Button to clear the textarea field */}
