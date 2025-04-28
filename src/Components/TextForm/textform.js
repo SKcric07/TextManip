@@ -26,6 +26,18 @@ function TextForm() {
     setInputText(captializedText);
   }
 
+  //Definition to remove extra space from the sentence
+  const removeExtraSpace = () => {
+    const nospace = inputText.trim().split(/\s+/).join(' ');
+    setInputText(nospace);
+  }
+  
+  //Definition to remove space between words
+  const removeSpace = () => {
+    const noWordSpace = inputText.replace(/\s+/g, "");
+    setInputText(noWordSpace);
+  }
+
   const clearTextArea = () => {
     setInputText("");
   }
@@ -45,7 +57,20 @@ function TextForm() {
           className='text-input' 
           placeholder='Enter or paste your text here...'
           value={inputText}
-          onChange={handleTextChange}>
+          onChange={handleTextChange}
+          onKeyDown={(e) => {
+            if(e.key === 'Tab'){
+              e.preventDefault();
+              const start = e.target.selectionStart;
+              const end = e.target.selectionEnd;
+              setInputText(inputText.substring(0, start) + "\t" + inputText.substring(end));
+              setTimeout(() => {
+                e.target.selectionStart = e.target.selectionEnd = start + 1;
+              }, 0);
+            }
+          }}
+          
+          >
           
         </textarea>
 
@@ -61,8 +86,14 @@ function TextForm() {
           {/* Button to convert lowerCase */}
           <button className="action-button" onClick={convertToLowerCase}>lowercase</button>
 
+          {/* Button to covert frist letter of every word into Captial letter */}
           <button className="action-button" onClick={convertToCaptial}>Capitalize</button>
-          <button className="action-button">Remove Space</button>
+
+          {/* Button to remove extra space */}
+          <button className="action-button" onClick={removeExtraSpace}>Remove Extra Space</button>
+
+          {/* Button to remove space from the words and sentence*/}
+          <button className="action-button" onClick={removeSpace}>Remove Space</button>
 
           {/* Button to clear the textarea field */}
           <button className="action-button clear" onClick={clearTextArea}>Clear</button>
